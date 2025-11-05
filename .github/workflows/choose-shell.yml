@@ -32,5 +32,3 @@ jobs:
             Write-Ouput "Windows OS has been selected"
             shell: pwsh
   
-    
-    

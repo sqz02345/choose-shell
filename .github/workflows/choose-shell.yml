@@ -8,7 +8,7 @@ on:
         default: bash
         options:
               - 'bash'
-              - 'powershell'
+              - 'pwsh'
           
         
 jobs: 
@@ -23,7 +23,7 @@ jobs:
           echo "You have selected Linux job"
           shell: bash
   powershell-job:
-  if: ${{ github.event.inputs.shell_choice == 'powershell' }}
+  if: ${{ github.event.inputs.shell_choice == 'pwsh' }}
   runs-on: windows-latest
   steps:
     - name: User Selection for windows job

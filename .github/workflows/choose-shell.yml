@@ -29,7 +29,7 @@ jobs:
         - name: User Selection for windows job
           run: |
               choco install gh
-              Write-Ouput "Windows OS has been selected"
+              Write-Output "Windows OS has been selected"
           shell:  pwsh
             
   

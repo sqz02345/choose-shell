@@ -1,0 +1,36 @@
+on:
+  workflow_dispatch:
+    inputs:
+      shell_choice:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        default: bash
+        options:
+              - 'bash'
+              - 'powershell'
+          
+        
+jobs: 
+  bash-job:
+  if: ${{ github.event.inputs.shell_choice== 'bash' }}
+  runs-on: ubuntu-runner
+  steps:
+      -  name: User Selection for Unix job
+         run: |
+          sudo apt-get update
+          sudo apt-get install jq
+          echo "You have selected Linux job"
+          shell: bash
+  powershell-job:
+  if: ${{ github.event.inputs.shell_choice == 'powershell' }}
+  runs-on: windows-latest
+  steps:
+    - name: User Selection for windows job
+      run: |
+        choco install gh
+        echo: Hello to Windows
+        shell: pwsh
+  
+    
+    

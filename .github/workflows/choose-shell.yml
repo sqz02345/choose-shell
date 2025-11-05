@@ -13,24 +13,24 @@ on:
         
 jobs: 
   bash-job:
-  if: ${{ github.event.inputs.shell_choice== 'bash' }}
-  runs-on: ubuntu-runner
-  steps:
-      -  name: User Selection for Unix job
-         run: |
-          sudo apt-get update
-          sudo apt-get install jq
-          echo "You have selected Linux job"
-          shell: bash
+    if: ${{ github.event.inputs.shell_choice == 'bash' }}
+    runs-on: ubuntu-latest
+    steps:
+        -  name: User Selection for Unix job
+           run: |
+            sudo apt-get update
+            sudo apt-get install jq
+            echo "You have selected Linux job"
+            shell: bash
   powershell-job:
-  if: ${{ github.event.inputs.shell_choice == 'pwsh' }}
-  runs-on: windows-latest
-  steps:
-    - name: User Selection for windows job
-      run: |
-        choco install gh
-        echo: Hello to Windows
-        shell: pwsh
+    if: ${{ github.event.inputs.shell_choice == 'pwsh' }}
+    runs-on: windows-latest
+    steps:
+        - name: User Selection for windows job
+          run: |
+            choco install gh
+            Write-Ouput "Windows OS has been selected"
+            shell: pwsh
   
     
     
